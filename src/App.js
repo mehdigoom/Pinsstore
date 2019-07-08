@@ -13,7 +13,7 @@ class App extends React.Component {
          passeword:"",
          nombrearticle:0,
          IDarticle:0,
-         action:0
+   
       }
       this.ajoutarticle= this.ajoutarticle.bind(this);
       this.retirarticle= this.retirarticle.bind(this);
@@ -36,11 +36,14 @@ retirarticle(){
 
 if (this.state.nombrearticle > 0){
   this.setState({nombrearticle: this.state.nombrearticle-1})
+
 }
 
   
   
   }
+
+
 
    render() {
       return (
