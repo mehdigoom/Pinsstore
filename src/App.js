@@ -12,7 +12,7 @@ class App extends React.Component {
          Username: "",
          passeword:"",
          nombrearticle:0,
-         IDarticle:"",
+         IDarticle:0,
          action:0
       }
       this.ajoutarticle= this.ajoutarticle.bind(this);
@@ -43,7 +43,17 @@ if (this.state.nombrearticle > 0){
             <h1>Slider</h1>
             <h2>Article</h2>
             <button onClick={this.ajoutarticle}>Ajouter 1 au panier</button>
-            <button onClick={this.retirarticle}> Ajouter 1 au retirer</button>
+            <button onClick={this.retirarticle}> retirer 1 au panier</button>
+            <p>Connexion</p>
+            <form>
+  <label>
+    Nom :
+    <input type="text" name="name" />
+    passeword :
+    <input type="passeword" name="Password" />
+  </label>
+  <input type="submit" value="Envoyer" />
+</form>
          </div>
       );
    }
