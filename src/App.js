@@ -28,8 +28,10 @@ ajoutarticle(){
 }
 retirarticle(){
 
- 
-    this.setState({nombrearticle: this.state.nombrearticle-1})
+if (this.state.nombrearticle > 0){
+  this.setState({nombrearticle: this.state.nombrearticle-1})
+}
+
   
   
   }
