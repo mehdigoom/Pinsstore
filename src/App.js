@@ -17,9 +17,15 @@ class App extends React.Component {
       }
       this.ajoutarticle= this.ajoutarticle.bind(this);
       this.retirarticle= this.retirarticle.bind(this);
+      this.viderarticle= this.viderarticle.bind(this);
    }
 
+   viderarticle(){
+
+
+    this.setState({nombrearticle: 0})
   
+  }
 ajoutarticle(){
 
 
@@ -40,17 +46,42 @@ if (this.state.nombrearticle > 0){
       return (
          <div>
 <p>article dans mon painer {this.state.nombrearticle}</p>
+            
+            
+            
             <h1>Slider</h1>
             <h2>Article</h2>
+  
+  
+  
+  
+  
             <button onClick={this.ajoutarticle}>Ajouter 1 au panier</button>
             <button onClick={this.retirarticle}> retirer 1 au panier</button>
+            <button onClick={this.viderarticle}> Vider panier</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <p>Connexion</p>
             <form>
+
   <label>
-    Nom :
+    Login :
     <input type="text" name="name" />
     passeword :
-    <input type="passeword" name="Password" />
+    <input type="password" name="Password" />
   </label>
   <input type="submit" value="Envoyer" />
 </form>
