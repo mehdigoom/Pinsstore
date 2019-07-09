@@ -3,6 +3,9 @@
 
 import React from 'react';
 import  TestMiro  from './TestMiro.js';
+import  Footer  from './Footer.js';
+import  Body from './Body.js';
+import  header from './Header.js';
 class App extends React.Component {
    constructor(props) {
       super(props);
