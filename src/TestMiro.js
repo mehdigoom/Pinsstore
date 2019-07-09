@@ -3,7 +3,7 @@
 
 import React from 'react';
 
-class App extends React.Component {
+class TestMiro extends React.Component {
    constructor(props) {
       super(props);
 		
@@ -113,5 +113,5 @@ if (this.state.nombrearticle > 0){
       );
    }
 }
+export default TestMiro;
 
-export default App;
