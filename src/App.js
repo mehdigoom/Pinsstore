@@ -3,6 +3,11 @@ import PeanutCard from './components/PeanutCard';
 import './App.scss'
 import PeanutFilterItem from './components/PeanutFilterItem';
 
+import  TestMiro  from './TestMiro.js';
+import  Footer  from './Footer.js';
+import  Body from './Body.js';
+import  header from './Header.js';
+
 class App extends React.Component {
    constructor(props) {
       super(props);
@@ -13,7 +18,6 @@ class App extends React.Component {
          passeword:"",
          nombrearticle:0,
          IDarticle:0,
-   
       }
       this.ajoutarticle= this.ajoutarticle.bind(this);
       this.retirarticle= this.retirarticle.bind(this);
@@ -53,6 +57,10 @@ class App extends React.Component {
               <nav></nav>
           </header>
           <section className="container -flex">
+          <div>
+            <p>test</p>
+            <TestMiro />
+          </div>
           <article className="delivery -flex">
                 <figure className="delivery-figure"><img src="https://i.imgur.com/KfBVf9w.jpg" alt="Delivery Image" /></figure>
                 <div className="delivery-message">
@@ -83,8 +91,10 @@ class App extends React.Component {
             </form>
           </section>
         </section>
-      );
+      } 
+
    }
+   
 }
 
 export default App;
