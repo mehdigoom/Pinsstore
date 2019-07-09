@@ -3,6 +3,11 @@ import PeanutCard from './components/PeanutCard';
 import './App.scss'
 import PeanutFilterItem from './components/PeanutFilterItem';
 
+import  TestMiro  from './TestMiro.js';
+import  Footer  from './Footer.js';
+import  Body from './Body.js';
+import  header from './Header.js';
+
 class App extends React.Component {
    constructor(props) {
       super(props);
@@ -13,7 +18,6 @@ class App extends React.Component {
          passeword:"",
          nombrearticle:0,
          IDarticle:0,
-   
       }
       this.ajoutarticle= this.ajoutarticle.bind(this);
       this.retirarticle= this.retirarticle.bind(this);
@@ -43,18 +47,14 @@ class App extends React.Component {
     return (
         <section className="wrapper -flex">
           <section className="sidebar">
-            <p>article dans mon painer {this.state.nombrearticle}</p>
-            <button onClick={this.ajoutarticle}>Ajouter 1 au panier</button>
-            <button onClick={this.retirarticle}> retirer 1 au panier</button>
-            <button onClick={this.viderarticle}> Vider panier</button>
-            {this.Articleliste}
+            <TestMiro />
           </section>
           <header>
               <nav></nav>
           </header>
           <section className="container -flex">
-            <article className="delivery -flex">
-              <figure className="delivery-figure"><img src="https://i.imgur.com/KfBVf9w.jpg" alt="Delivery Image" /></figure>
+          <article className="delivery -flex">
+                <figure className="delivery-figure"><img src="https://i.imgur.com/KfBVf9w.jpg" alt="Delivery Image" /></figure>
                 <div className="delivery-message">
                     <h4>Don't wait to long to be delivered !</h4>
                   <p>lorem ipsum dolor sit amet ...</p>
@@ -72,20 +72,12 @@ class App extends React.Component {
                 <PeanutCard src="https://cdn.dribbble.com/users/508142/screenshots/3991256/3.jpg" alt="toto" price="55" />
                 <PeanutCard src="https://cdn.dribbble.com/users/508142/screenshots/3991256/3.jpg" alt="toto" price="55" />
             </section>
-            <p>Connexion</p>
-            <form>
-              <label>
-                Login :
-                <input type="text" name="name" />
-                passeword :
-                <input type="password" name="Password" />
-              </label>
-              <input type="submit" value="Envoyer" />
-            </form>
           </section>
         </section>
-      );
+    )} 
+
    }
-}
+   
+
 
 export default App;

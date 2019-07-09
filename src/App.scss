@@ -87,7 +87,7 @@ header {
 
 .delivery {
   width: 100%;
-  height: 17rem;
+  height: 15rem;
   background-color: $color-pink;
   border-radius: 10px;
   overflow: hidden;
@@ -95,19 +95,19 @@ header {
 }
 
 .delivery-figure {
-  width: 28rem;
+  width: 25rem;
   height: 100%;
 }
 
 .delivery-message {
   h4 {
       color: $color-orange;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       line-height: 5rem;
   }
   p {
       color: $color-darkGrey;
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 300;
   }
 }
