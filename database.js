@@ -34,8 +34,27 @@ const getUsers = function getUsers(clbk, id) {
   console.log("Last Query :", query.sql);
 }
 
-const getProducts = function getProducts(clbk, id) {
+const getProducts = function getProducts(clbk) {
   let sql = "SELECT * FROM products";
+  client.query(sql, (error, results, fields) => {
+      if (error) return clbk(error, null);
+      return clbk(null, results);
+  });
+}
+
+const getBasket = function getBasket(clbk, id) {
+  let sql = "SELECT * FROM basket WHERE users_id = ?";
+  client.query(sql, [id], (error, results, fields) => {
+      
+    if (error) return clbk(error, null);
+    console.log(sql)
+      return clbk(null, results);
+
+  });
+}
+ 
+const delBasket = function delBasket(clbk, id) {
+  let sql = "DELETE FROM basket WHERE users_id = ?";
   client.query(sql, [id], (error, results, fields) => {
       if (error) return clbk(error, null);
       return clbk(null, results);
@@ -45,4 +64,6 @@ const getProducts = function getProducts(clbk, id) {
 module.exports = {
   getUsers,
   getProducts,
+  getBasket,
+  delBasket,
 };  

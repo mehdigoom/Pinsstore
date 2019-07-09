@@ -34,6 +34,26 @@ app.get('/products', (req, res) => {
   }, null);
 });
 
+ 
+
+app.get('/basket/:id', (req, res) => {
+  database.getBasket( (err, basket) => {
+    if (err) return res.status(500).send(err);
+    return res.status(200).send(basket);
+  }, req.params.id);
+});
+
+
+
+
+app.delete('/delbasket/:id', (req, res) => {
+  database.delBasket( (err, basket) => {
+    if (err) return res.status(500).send(err);
+    return res.status(200).send(basket);
+  }, req.params.id);
+});
+
+
 
 app.listen(port, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
