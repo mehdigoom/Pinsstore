@@ -61,7 +61,7 @@ figure img {
 .container {
   width: 100%;
   // background-color: rgba(255, 0, 0, 0.116);
-  padding: 1rem 8rem;
+  padding: 1rem 6rem;
   flex-wrap: wrap;
   & > * {
       margin: 1rem 0;
@@ -87,7 +87,7 @@ header {
 
 .delivery {
   width: 100%;
-  height: 15rem;
+  height: 17rem;
   background-color: $color-pink;
   border-radius: 10px;
   overflow: hidden;
@@ -95,19 +95,23 @@ header {
 }
 
 .delivery-figure {
-  width: 27rem;
+  width: 28rem;
   height: 100%;
 }
 
 .delivery-message {
   h4 {
       color: $color-orange;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       line-height: 5rem;
   }
   p {
       color: $color-darkGrey;
-      font-size: 1rem;
+      font-size: 1.1rem;
       font-weight: 300;
   }
+}
+
+.peanut-filter {
+  width: 100%;
 }
