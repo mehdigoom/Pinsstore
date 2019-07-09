@@ -9,9 +9,6 @@ const server = http.createServer((req, res) => {
   res.end();
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
 
 var express = require('express');
 var app = express();
@@ -20,6 +17,9 @@ var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+  res.send('root at at api')
+});
 app.get('/users', (req, res) => {
   database.getUsers( (err, users) => {
     if (err) return res.status(500).send(err);
@@ -34,3 +34,7 @@ app.get('/products', (req, res) => {
   }, null);
 });
 
+
+app.listen(port, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
