@@ -1,6 +1,7 @@
 import React from 'react';
 import PeanutCard from './components/PeanutCard';
 import './App.scss'
+import PeanutFilterItem from './components/PeanutFilterItem';
 
 class App extends React.Component {
    constructor(props) {
@@ -58,7 +59,12 @@ class App extends React.Component {
                     <h4>Don't wait to long to be delivered !</h4>
                     <p>lorem ipsum dolor sit amet ...</p>
                 </div>
-            </article>     
+            </article> 
+            <section className="peanut-filter -flex">
+              <PeanutFilterItem label="All" />
+              <PeanutFilterItem label="Bottle" />
+              <PeanutFilterItem label="Cake" />
+            </section>    
             <section className="peanut-container -flex">
               {/* exemple peanut card */}
                 <PeanutCard src="https://cdn.dribbble.com/users/508142/screenshots/3991256/3.jpg" alt="toto" price="55" />
