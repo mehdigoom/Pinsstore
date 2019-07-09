@@ -1,6 +1,7 @@
 import React from 'react';
 import PeanutCard from './components/PeanutCard';
-import './App.scss'
+import PeanutBasket from './components/PeanutBasket';
+import './App.scss';
 import PeanutFilterItem from './components/PeanutFilterItem';
 
 import  TestMiro  from './TestMiro.js';
@@ -47,7 +48,8 @@ class App extends React.Component {
     return (
         <section className="wrapper -flex">
           <section className="sidebar">
-            <TestMiro />
+            <PeanutBasket/>
+            {/* <TestMiro /> */}
           </section>
           <header>
               <nav></nav>
