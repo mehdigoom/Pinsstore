@@ -22,6 +22,9 @@ class App extends React.Component {
       this.ajoutarticle= this.ajoutarticle.bind(this);
       this.retirarticle= this.retirarticle.bind(this);
       this.viderarticle= this.viderarticle.bind(this);
+      this.handleChangeuser = this.handleChangeuser.bind(this);
+      this.handleChangepsw = this.handleChangepsw.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
    }
 
     viderarticle(){
@@ -40,6 +43,17 @@ class App extends React.Component {
     if (this.state.nombrearticle > 0){
       this.setState({nombrearticle: this.state.nombrearticle-1})
     } 
+  }
+
+  handleChangeuser(event) {
+    this.setState({Username: event.target.value});
+  }
+  handleChangepsw(event) {
+    this.setState({passeword: event.target.value});
+  }
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.Username);
+    event.preventDefault();
   }
 
   render() {
@@ -80,15 +94,15 @@ class App extends React.Component {
                 <PeanutCard src="https://cdn.dribbble.com/users/508142/screenshots/3991256/3.jpg" alt="toto" price="55" />
             </section>
             <p>Connexion</p>
-            <form>
-              <label>
-                Login :
-                <input type="text" name="name" />
-                passeword :
-                <input type="password" name="Password" />
-              </label>
-              <input type="submit" value="Envoyer" />
-            </form>
+            <form onSubmit={this.handleSubmit}>
+        <label>
+          Username:
+          <input type="text" value={this.state.Username} onChange={this.handleChangeuser} />
+          Passeword:
+          <input type="text" value={this.state.passeword} onChange={this.handleChangepsw} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
           </section>
         </section>
       );
