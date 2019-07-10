@@ -24,6 +24,9 @@ class App extends React.Component {
       this.ajoutarticle= this.ajoutarticle.bind(this);
       this.retirarticle= this.retirarticle.bind(this);
       this.viderarticle= this.viderarticle.bind(this);
+      this.handleChangeuser = this.handleChangeuser.bind(this);
+      this.handleChangepsw = this.handleChangepsw.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
    
    }
 
@@ -46,6 +49,19 @@ class App extends React.Component {
   }
 
 
+
+  handleChangeuser(event) {
+    this.setState({Username: event.target.value});
+  }
+  handleChangepsw(event) {
+    this.setState({passeword: event.target.value});
+  }
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.Username);
+    event.preventDefault();
+  }
+
+  
 
   render() {
 
@@ -85,7 +101,11 @@ class App extends React.Component {
                 <PeanutCard src="https://cdn.dribbble.com/users/508142/screenshots/3991256/3.jpg" alt="toto" price="55" />
             </section>
             <p>Connexion</p>
-            <Login  />
+            <Login  Username={this.state.Username}
+            passeword={this.state.passeword}
+            handleChangeuser = {this.handleChangeuser} 
+            handleChangepsw = {this.handleChangepsw}
+            handleSubmit ={this.handleSubmit} />
           </section>
         </section>
       );

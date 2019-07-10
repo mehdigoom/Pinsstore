@@ -14,24 +14,13 @@ class Login extends React.Component {
 
    
       }
-      this.handleChangeuser = this.handleChangeuser.bind(this);
-      this.handleChangepsw = this.handleChangepsw.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
+   
    }
 
  
    
 
-   handleChangeuser(event) {
-    this.setState({Username: event.target.value});
-  }
-  handleChangepsw(event) {
-    this.setState({passeword: event.target.value});
-  }
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.Username);
-    event.preventDefault();
-  }
+
 
 
 
@@ -48,15 +37,17 @@ class Login extends React.Component {
 
 
    render() {
+       const {Username,passeword,handleChangeuser,handleChangepsw,handleSubmit} = this.props
+    
       return (
 
          <div>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={handleSubmit}>
         <label>
           Username:
-          <input type="text" value={this.state.Username} onChange={this.handleChangeuser} />
+          <input type="text" value={Username} onChange={handleChangeuser} />
           Passeword:
-          <input type="text" value={this.state.passeword} onChange={this.handleChangepsw} />
+          <input type="text" value={passeword} onChange={handleChangepsw} />
         </label>
         <input type="submit" value="Submit" />
       </form>
