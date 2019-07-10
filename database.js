@@ -61,7 +61,8 @@ const delBasket = function delBasket(clbk, id) {
 }
 
 const addBasket = function addBasket(clbk, id,quantity,products_id,users_id) {
-  let sql = "INSERT INTO basket VALUES (?,?, ?)";
+  console.log(id + " " + quantity+ " " +products_id+ " " +users_id )
+  let sql = "INSERT INTO basket VALUES (?,?,?,?)";
   client.query(sql, [id,quantity,products_id,users_id], (error, results, fields) => {
       if (error) return clbk(error, null);
       return clbk(null, results);

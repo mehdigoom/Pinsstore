@@ -41,11 +41,13 @@ app.get('/basket/:id', (req, res) => {
   }, req.params.id);
 });
 
-app.post('/addbasket/:quantity:productid:usersid:', (req, res) => {
+app.post('/addbasket', (req, res) => {
+ 
   database.addBasket( (err, basket) => {
+
     if (err) return res.status(500).send(err);
     return res.status(200).send(basket);
-  }, req.params.id,req.param.productid,req.param.userid);
+  }, req.body.id,req.body.quantity, req.body.products_id,req.body.users_id);
 });
 
 app.delete('/delbasket/:id', (req, res) => {
@@ -57,7 +59,7 @@ app.delete('/delbasket/:id', (req, res) => {
 
 app.patch('/users', (req, res) => {
   database.updateUser((err, user) => {
-    console.log(`User N°${req.body.firstname} updated.`);
+    console.log(`User -${req.body.firstname}- updated.`);
     if (err) return res.status(500).send(err);
     else return res.status(200).send(user);
   }, req.body) 
