@@ -43,7 +43,12 @@ app.get('/basket/:id', (req, res) => {
   }, req.params.id);
 });
 
-
+app.post('/addbasket/:quantity:productid:usersid:', (req, res) => {
+  database.addBasket( (err, basket) => {
+    if (err) return res.status(500).send(err);
+    return res.status(200).send(basket);
+  }, req.params.id,req.param.productid,req.param.userid);
+});
 
 
 app.delete('/delbasket/:id', (req, res) => {
