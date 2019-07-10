@@ -7,6 +7,8 @@ import  TestMiro  from './TestMiro.js';
 import  Footer  from './Footer.js';
 import  Body from './Body.js';
 import  header from './Header.js';
+import Login from './components/Login/Login.js'
+import { logicalExpression } from '@babel/types';
 
 class App extends React.Component {
    constructor(props) {
@@ -22,9 +24,7 @@ class App extends React.Component {
       this.ajoutarticle= this.ajoutarticle.bind(this);
       this.retirarticle= this.retirarticle.bind(this);
       this.viderarticle= this.viderarticle.bind(this);
-      this.handleChangeuser = this.handleChangeuser.bind(this);
-      this.handleChangepsw = this.handleChangepsw.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
+   
    }
 
     viderarticle(){
@@ -45,16 +45,7 @@ class App extends React.Component {
     } 
   }
 
-  handleChangeuser(event) {
-    this.setState({Username: event.target.value});
-  }
-  handleChangepsw(event) {
-    this.setState({passeword: event.target.value});
-  }
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.Username);
-    event.preventDefault();
-  }
+
 
   render() {
 
@@ -94,15 +85,7 @@ class App extends React.Component {
                 <PeanutCard src="https://cdn.dribbble.com/users/508142/screenshots/3991256/3.jpg" alt="toto" price="55" />
             </section>
             <p>Connexion</p>
-            <form onSubmit={this.handleSubmit}>
-        <label>
-          Username:
-          <input type="text" value={this.state.Username} onChange={this.handleChangeuser} />
-          Passeword:
-          <input type="text" value={this.state.passeword} onChange={this.handleChangepsw} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+            <Login  />
           </section>
         </section>
       );
