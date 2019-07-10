@@ -91,10 +91,9 @@ class App extends React.Component {
             </form>
           </section>
         </section>
-      } 
+      );
+    }
+ }
 
-   }
-   
-}
 
 export default App;
