@@ -3,8 +3,7 @@ var mysql = require('mysql');
 var client= mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'root',
-  port: 8889,
+  password: '',
   database: 'peanshop',
   
 });
@@ -69,6 +68,29 @@ const addBasket = function addBasket(clbk, id,quantity,products_id,users_id) {
   });
 }
 
+const updateUser = function updateUser(clbk, user) {
+  let sql = "UPDATE users SET firstname = ?, lastname = ?, email = ? WHERE id = ?"
+  const payload = [user.firstname, user.lastname, user.email, user.id]
+  client.query(sql, payload, function (err, res) {
+    if (err) return clbk(err, null);
+    return clbk(null, res)
+  })
+}
+
+const loginUser = function loginUser(clbk, user) {
+
+  let sql;
+
+  sql = `SELECT * FROM users WHERE email = ? and password = ?`;
+
+  const payload = [user.email, user.password]
+
+  const query = client.query(sql, payload, (error, results) => {
+      if (error) return clbk(error, null);
+      return clbk(null, results[0]);
+  });
+  console.log("Last Query ==>", query.sql);
+}
 
 module.exports = {
   addBasket,
@@ -76,4 +98,6 @@ module.exports = {
   getProducts,
   getBasket,
   delBasket,
+  updateUser,
+  loginUser,
 };  

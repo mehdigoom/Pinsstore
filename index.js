@@ -3,23 +3,23 @@ const database = require("./database");
 const hostname = '127.0.0.1';
 const port = 5000;
 
-const server = http.createServer((req, res) => {
+http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
   res.end();
 });
 
-
 var express = require('express');
 var app = express();
-
 var bodyParser = require("body-parser"); 
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
   res.send('root at at api')
 });
+
 app.get('/users', (req, res) => {
   database.getUsers( (err, users) => {
     if (err) return res.status(500).send(err);
@@ -33,8 +33,6 @@ app.get('/products', (req, res) => {
     return res.status(200).send(products);
   }, null);
 });
-
- 
 
 app.get('/basket/:id', (req, res) => {
   database.getBasket( (err, basket) => {
@@ -50,7 +48,6 @@ app.post('/addbasket/:quantity:productid:usersid:', (req, res) => {
   }, req.params.id,req.param.productid,req.param.userid);
 });
 
-
 app.delete('/delbasket/:id', (req, res) => {
   database.delBasket( (err, basket) => {
     if (err) return res.status(500).send(err);
@@ -58,7 +55,22 @@ app.delete('/delbasket/:id', (req, res) => {
   }, req.params.id);
 });
 
+app.patch('/users', (req, res) => {
+  database.updateUser((err, user) => {
+    console.log(`User N°${req.body.firstname} updated.`);
+    if (err) return res.status(500).send(err);
+    else return res.status(200).send(user);
+  }, req.body) 
+})
 
+app.post('/user/login', (req, res) => {
+  database.loginUser( (err, user) => {
+    if (err) return res.status(500).send(err);
+    else if (!user) return res.send("Bad informations ...");
+    console.log('User', user)
+    res.status(200).send(user)
+  }, req.body);
+});
 
 app.listen(port, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
